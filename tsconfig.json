@@ -160,9 +160,21 @@
     // ✅ alwaysStrict 옵션은 컴파일시 js파일에 'use strict'를 추가하여 strict모드를 사용하도록 해준다.
 
     // "noUnusedLocals": true,                           /* Enable error reporting when local variables aren't read. */
+    // ✅ noUnusedLocals 옵션은 사용되지 않은 지역변수가 선언되는 경우 에러를 표시한다.
+    //    -> function a(){let username = 'max'} // 함수내에서 사용되지 않는 변수 선언 -> 에러
+    // ts 파일의 가장 바깥 영역에 사용하지 않는 변수를 설정하는 것은 에러를 표시하지 않는다. -> 다른 ts파일에서 참조될 수도 있기 때문.
+
     // "noUnusedParameters": true,                       /* Raise an error when a function parameter isn't read. */
+    // ✅ noUnusedParameters 옵션은 사용되지 않은 매개변수가 존재하는 경우 에러를 표시한다.
+
     // "exactOptionalPropertyTypes": true,               /* Interpret optional property types as written, rather than adding 'undefined'. */
+
     // "noImplicitReturns": true,                        /* Enable error reporting for codepaths that do not explicitly return in a function. */
+    // ✅ noImplicitReturns 옵션은 특정 조건에서는 리턴하고 다른 경우에는 리턴하지 않는 함수가 있는 경우 에러를 나타낸다.
+    // function fun(n1){if(n1 === 1) return n1;}  -> n1이 1인 경우에는 리턴하고 다른 경우에는 리턴하지 않으므로 에러 발생
+    // 즉, 모든 분기가 return 문으로 이어지지 않으면 에러
+    // 어떤 경우에도 return 하지 않는 함수는 에러를 표시하지 않음.(ex. console.log만 실행하는 함수인 경우)
+
     // "noFallthroughCasesInSwitch": true,               /* Enable error reporting for fallthrough cases in switch statements. */
     // "noUncheckedIndexedAccess": true,                 /* Add 'undefined' to a type when accessed using an index. */
     // "noImplicitOverride": true,                       /* Ensure overriding members in derived classes are marked with an override modifier. */
