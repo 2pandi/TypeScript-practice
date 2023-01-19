@@ -90,10 +90,20 @@
     //   -> src/analytics/analytics.ts    =>    dist/analytics/analytics.js
 
     // "removeComments": true,                           /* Disable emitting comments. */
+    // ✅ 컴파일시 ts파일에 포함된 주석을 제외하고 컴파일한다.
+    // 파일의 크기를 줄이는데 도움이 된다.
+
     // "noEmit": true,                                   /* Disable emitting files from a compilation. */
+    // ✅ noEmit 옵션을 true로 설정하면 js파일을 생성하지 않는다.
+    // 규모가 큰 프로젝트에서 출력파일을 가져오지 않고도 컴파일러가 파일을 검사하고 잠재적 에러를 보고하도록 할 수 있음.
+
     // "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
     // "importsNotUsedAsValues": "remove",               /* Specify emit/checking behavior for imports that are only used for types. */
+
     // "downlevelIteration": true,                       /* Emit more compliant, but verbose and less performant JavaScript for iteration. */
+    // ✅ downlevelIteration 옵션을 true로 설정하면 컴파일시 for 등의 루프가 의도대로 작동하지 않는 경우 설정해줄 수 있다.
+    // 컴파일시 더 상세한 코드로 출력해주기 때문에 항상 true로 적용해 두는 것은 비효율적일 수 있다.
+
     // "sourceRoot": "",                                 /* Specify the root path for debuggers to find the reference source code. */
     // "mapRoot": "",                                    /* Specify the location where debugger should locate map files instead of generated locations. */
     // "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
