@@ -30,3 +30,5 @@ typescript에서 에러로 걸러지지 않음.
   Type '[number, string, string]' is not assignable to type '[number, string]'.
   Source has 3 element(s) but target allows only 2.
  */
+
+export {};

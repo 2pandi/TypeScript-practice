@@ -35,3 +35,5 @@ accounting.describe();
 accounting.printEmployeeInformation();
 // 2
 // ['Max', 'Manu']
+
+export {};
