@@ -1,7 +1,8 @@
 class Department {
   private readonly id: string;
   public name: string;
-  private employees: string[] = [];
+  // private employees: string[] = [];
+  protected employees: string[] = [];
 
   constructor(id: string, n: string) {
     this.id = id;
@@ -28,7 +29,31 @@ class Department {
   }
 }
 
-const accounting = new Department("d1", "Accounting");
+class AccountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, "Accounting");
+  }
+
+  addEmployee(name: string) {
+    if (name === "Max") return;
+    this.employees.push(name);
+    // Property 'employees' is private and only accessible within class 'Department'.
+    // Department의 employee 속성이 private으로 지정되었기 때문에
+    // 정의된 클래스에서만 접근이 가능하고 해당 클래스에서 상속받는 클래스에서는 접근이 불가하다.
+    // Department의 employee 속성을 protected로 변경하면 외부에서 접근은 금지하면서
+    // 상속된 클래스에서 접근할 수 있게 된다.
+  }
+
+  addReport(text: string) {
+    this.reports.push(text);
+  }
+
+  printReports() {
+    console.log(this.reports);
+  }
+}
+
+const accounting = new AccountingDepartment("d1", []);
 
 accounting.addEmployee("Max");
 accounting.addEmployee("Manu");
@@ -43,7 +68,9 @@ accounting.addEmployee("Manu");
 
 accounting.describe();
 accounting.printEmployeeInformation();
-// 2
-// ['Max', 'Manu']
+// 1
+// ['Manu']
+// 오버라이드 된 addEmployee 메서드에서 'Max'의 추가를 제한하였기 때문에
+// 'Manu'만 추가된 것을 볼 수 있다.
 
 export {};
