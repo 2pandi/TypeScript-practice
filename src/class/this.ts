@@ -45,3 +45,5 @@ console.log(accounting2);
 const accountingCopy2 = { name: "DUMMY", describe: accounting2.describe };
 accountingCopy2.describe();
 // accountingCopy2에 name 속성을 추가하면 에러가 발생하지 않음.
+
+export {};
