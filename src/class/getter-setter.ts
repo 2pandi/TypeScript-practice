@@ -24,20 +24,33 @@ class Department {
 
 class ITDepartment extends Department {
   constructor(id: string, public admins: string[]) {
-    //
     super(id, "IT");
-    // 다른 클래스로부터 상속받는 클래스에 고유 생성자를 추가할 경우 super 키워드를 추가하여 함수처럼 실행해야 한다.
-    // super는 기본 클래스(프로토타입)의 생성자를 호출한다.(Department 클래스의 constructor)
   }
 }
 
 class AccountingDepartment extends Department {
+  private lastReport: string;
+
+  // getter
+  get mostRecentReport() {
+    if (this.lastReport) return this.lastReport;
+    throw new Error("No report found.");
+  }
+
+  // setter
+  set mostRecentReport(value: string) {
+    if (!value) throw new Error("Please pass in a valid value!");
+    this.addReport(value);
+  }
+
   constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
+    this.lastReport = reports[0];
   }
 
   addReport(text: string) {
     this.reports.push(text);
+    this.lastReport = text;
   }
 
   printReports() {
@@ -52,19 +65,18 @@ it.addEmployee("Manu");
 
 it.describe();
 it.printEmployeeInformation();
-// 2
-// ['Max', 'Manu']
 
 console.log(it);
-// ITDepartment {id: 'd2', name: 'IT', employees: Array(2), admins: Array(1)}
-// Department 클래스에 있는 항목에 admins라는 ITDepartment의 고유 항목이 추가되어 출력된다.
 
 const accounting = new AccountingDepartment("d1", []);
 
+// setter
+accounting.mostRecentReport = "Year End Report";
 accounting.addReport("Something went wrong...");
+// getter
+console.log(accounting.mostRecentReport);
+
 accounting.printReports();
 console.log(accounting);
-// AccountingDepartment {id: 'd1', name: 'Accounting', employees: Array(0), reports: Array(1)}
-// ITDepartment에 있는 admins 속성은 나타나지 않고, 고유 속성인 reports가 출력된다.
 
 export {};
