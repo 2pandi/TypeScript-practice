@@ -10,7 +10,8 @@ class Department {
     // Property 'fiscalYear' does not exist on type 'Department'.
     // Did you mean to access the static member 'Department.fiscalYear' instead?
     // fiscalYear속성이 static으로 지정되었기 때문에 인스턴스에서 접근이 불가하다.
-    //    -> this는 클래스를 기반으로 생성된 인스턴스를 참조한다.
+    //    -> 여기서 this는 클래스를 기반으로 생성된 인스턴스를 참조한다.
+    // 정적 메서드 안에서의 this는 클래스 자체에 접근할 수 있다.(constructor는 static 적용 불가)
     console.log(Department.fiscalYear);
   }
 
