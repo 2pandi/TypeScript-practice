@@ -29,3 +29,5 @@ addAndHandle(10, 20, (result) => {
 });
 // addAndHandle 함수에서 cb의 리턴 타입을 void로 지정함으로써
 // 반환할 수 있는 모든 결과를 무시하게 된다.
+
+export {};
