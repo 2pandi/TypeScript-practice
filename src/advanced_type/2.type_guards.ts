@@ -45,6 +45,8 @@ function add(a: Combinable, b: Combinable) {
 // 위의 함수에서 if문 부분을 타입 가드라고 한다.
 // 유니온 타입의 유연성이라는 이점은 그대로 활용하면서
 // 런타임에 코드가 제대로 실행될 수 있도록 해준다.
+// 주의할 점은 typeof를 사용할 때 문자열 형식으로 작성해야 하므로
+// 오타로 인한 에러 가능성이 있다는 것이다.
 
 type UnknownEmployee = T_employee | T_admin;
 
